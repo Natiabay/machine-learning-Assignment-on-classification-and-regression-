@@ -1,86 +1,53 @@
-# Machine Learning Assignment: Classification and Regression
+# Machine Learning Regression Assignment - Parkinson's Disease Prediction
 
-This repository contains two comprehensive machine learning projects covering the complete ML pipeline from data exploration to model deployment.
+This project is about predicting Parkinson's disease severity using machine learning. I worked with the Parkinsons Telemonitoring dataset from UCI to build a regression model that can predict UPDRS (Unified Parkinson's Disease Rating Scale) scores from voice measurements.
 
-## 📋 Projects Overview
+## What's This About?
 
-### 1. Classification: Healthcare Stroke Prediction
-**Notebook**: `ML_Assignment_Classification.ipynb`  
-**Dataset**: Healthcare Stroke Prediction Dataset (5,110 samples, 12 features)
+Parkinson's is a neurodegenerative disease, and doctors use UPDRS scores to track how severe it is. The idea here is to predict these scores using voice measurements, which could be useful for remote monitoring. Instead of patients having to visit clinics frequently, we could potentially assess their condition through voice analysis.
 
-**Objective**: Predict stroke occurrence based on patient health indicators
+## The Dataset
 
-**Models Evaluated**:
-- Logistic Regression
-- Random Forest Classifier
-- Gradient Boosting Classifier
-- Support Vector Machine (SVM)
-- Neural Network (MLP)
+I used the Parkinsons Telemonitoring Dataset from UCI. It has voice measurements and some patient info that we can use to predict the total UPDRS score. The dataset includes things like jitter, shimmer, and other voice features that are known to be affected by Parkinson's.
 
-**Best Model**: Neural Network (MLP)
-- **Accuracy**: 92.47%
-- **ROC-AUC**: 0.7736
-- **Precision**: 0.1538
-- **Recall**: 0.1200
-- **F1-Score**: 0.1348
+## What I Did
 
-**Additional Task**: Regression to predict average glucose level
-- **Best Model**: Neural Network
-- **R² Score**: 0.9964
-- **RMSE**: 2.6226
-- **MAE**: 1.5287
+I went through the whole machine learning pipeline:
 
----
+1. **Explored the data** - Looked at distributions, checked for missing values, and tried to understand what features might be important
 
-### 2. Regression: Parkinson's Disease UPDRS Prediction
-**Notebook**: `ML_Assignment_Regression_Parkinsons.ipynb`  
-**Dataset**: Parkinsons Telemonitoring Dataset (UCI)
+2. **Cleaned and preprocessed** - Handled any missing data, scaled features, and got everything ready for modeling
 
-**Objective**: Predict Total UPDRS (Unified Parkinson's Disease Rating Scale) score based on voice measurements and patient characteristics
+3. **Tried different models** - I tested several regression algorithms:
+   - Linear Regression (baseline)
+   - Ridge and Lasso Regression
+   - Random Forest
+   - Gradient Boosting
+   - Support Vector Regression
+   - Neural Networks (MLP)
 
-**Models Evaluated**:
-- Linear Regression
-- Ridge Regression
-- Lasso Regression
-- Random Forest Regressor
-- Gradient Boosting Regressor
-- Support Vector Regressor (SVR)
-- Neural Network (MLP)
+4. **Compared and selected** - Evaluated all models using RMSE, MAE, R² score, and explained variance to see which one worked best
 
-**Best Model**: Gradient Boosting / Neural Network
-- **R² Score**: > 0.70 (Target achieved)
-- **RMSE**: Optimized
-- **MAE**: Minimized
-- **Explained Variance**: > 0.70
+5. **Tuned the best model** - Used hyperparameter tuning to squeeze out better performance
 
----
+6. **Tested on unseen data** - Finally evaluated the tuned model on the test set to see how well it generalizes
 
-## 🛠️ Technologies Used
+## Results
 
-- **Python 3.x**
-- **Libraries**:
-  - `pandas`, `numpy` - Data manipulation
-  - `matplotlib`, `seaborn` - Data visualization
-  - `scikit-learn` - Machine learning models and preprocessing
-  - `joblib`, `pickle` - Model serialization
+The final model met all the target criteria. It achieved an R² score above 0.70, which means it explains more than 70% of the variance in UPDRS scores. The RMSE and MAE were also minimized, showing the model makes reasonably accurate predictions.
 
----
+The model generalizes well - there wasn't a huge gap between training and validation performance, which is always a good sign.
 
-## 📊 Key Features
+## Files in This Repo
 
-### Complete ML Pipeline Implementation:
-1. **Problem Definition** - Business objectives and success criteria
-2. **Data Collection** - Loading and initial exploration
-3. **Data Exploration (EDA)** - Statistical analysis and visualizations
-4. **Data Cleaning** - Handling missing values, duplicates, outliers
-5. **Data Preprocessing** - Feature encoding, scaling, imputation
-6. **Model Development** - Training multiple algorithms
-7. **Model Evaluation** - Cross-validation and performance metrics
-8. **Hyperparameter Tuning** - GridSearchCV and RandomizedSearchCV
-9. **Model Selection** - Best model identification
-10. **Model Deployment** - Model serialization and deployment guidelines
-11. **Monitoring & Maintenance** - Production monitoring strategies
+- `ML_Assignment_Regression_Parkinsons.ipynb` - The main notebook with all the code
+- `Parkinsons-Telemonitoring-ucirvine.csv` - The dataset
+- `README.md` - This file
 
----
+## How to Run It
 
-## 📁 Repository Structure
+If you want to run this yourself:
+
+1. Make sure you have Python installed (I used Python 3.x)
+2. Install the required packages:
+   
